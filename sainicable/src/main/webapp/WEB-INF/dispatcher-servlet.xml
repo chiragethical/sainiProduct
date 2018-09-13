@@ -6,12 +6,12 @@
    http://www.springframework.org/schema/beans/spring-beans.xsd
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context.xsd
-http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-	<context:component-scan base-package="net.sc.sainicable.controller" />
-
+	<context:component-scan base-package="net.sc.sainicable.controller"/>
+<context:component-scan base-package="net.sc.sainicablebackend"/>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
@@ -20,7 +20,7 @@ http://www.springframework.org/schema/mvc
 
 	</bean>
 
-<mvc:annotation-driven/>
+<mvc:annotation-driven/> 
 
 <mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
 </beans>

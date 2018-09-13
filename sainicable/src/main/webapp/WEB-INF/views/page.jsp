@@ -7,7 +7,7 @@
 <html lang="en">
 
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js " />
+<spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 <head>
 
@@ -19,12 +19,16 @@
 
 <title>Saini Cable - ${title}</title>
 
+<script>
+	window.menu = '${title}';
+</script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/navbar.css" rel="stylesheet">
+<link href="${css}/sidebar.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="${css}/myapp.css" rel="stylesheet">
-
+<!--<link href="${css}/myapp.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -39,19 +43,37 @@
 		<%@include file="home.jsp"%>
 	</c:if>
 
+
+	<!--When user click only boxes  -->
+
+
+	<c:if test="${userClickBoxes==true }">
+		<%@include file="boxes.jsp"%>
+	</c:if>
+
+
+	<!--When user click only remotes  -->
+
+
+	<c:if test="${userClickRemotes==true }">
+		<%@include file="remotes.jsp"%>
+	</c:if>
+
+
+
+	<!--When user click only cables  -->
+
+
+	<c:if test="${userClickCables==true }">
+		<%@include file="cables.jsp"%>
+	</c:if>
+
+
 	<!--When user click only about  -->
 
 
 	<c:if test="${userClickAbout==true }">
 		<%@include file="about.jsp"%>
-	</c:if>
-
-
-	<!--When user click only services-->
-
-
-	<c:if test="${userClickServices==true }">
-		<%@include file="services.jsp"%>
 	</c:if>
 
 
@@ -67,6 +89,15 @@
 	<!-- Footer -->
 
 	<%@include file="./shared/footer.jsp"%>
+
+	<!-- JQUERY -->
+	<script src="${js}/jquery.js"></script>
+	<!-- BOOTSTRAP JS  -->
+	<script src="${js}/bootstrap.min.js"></script>
+	<!-- MY WEB JS  -->
+	<script src="${js}/myweb.js"></script>
+
+
 
 </body>
 

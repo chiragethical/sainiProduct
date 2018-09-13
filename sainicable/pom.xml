@@ -15,6 +15,15 @@
 
 	<dependencies>
 
+		<!-- backend dependency -->
+
+		<dependency>
+			<groupId>net.sc</groupId>
+			<artifactId>sainicablebackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+
 		<!-- JAVA EE API -->
 
 		<dependency>
@@ -31,24 +40,24 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- SPRING -->
-		
+
 		<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>${spring.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<!-- JSTL -->
-		
+
 		<dependency>
-		<groupId>jstl</groupId>
-		<artifactId>jstl</artifactId>
-		<version>1.2</version>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
-		
+
 	</dependencies>
 	<build>
 
