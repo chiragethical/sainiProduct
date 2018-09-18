@@ -4,7 +4,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,11 +14,11 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "net.pn.entbackend.dto" })
+@ComponentScan(basePackages = { "net.sc.sainicablebackend.dto" })
 @EnableTransactionManagement
 public class HibernateConfig {
 
-	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/eatsandtreatsnew";
+	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/sainicablenew";
 	private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DATABASE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
 	private static final String DATABASE_USERNAME = "root";
@@ -41,7 +41,7 @@ public class HibernateConfig {
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("net.pn.entbackend.dto");
+		builder.scanPackages("net.sc.sainicablebackend.dto");
 		return builder.buildSessionFactory();
 
 	}
@@ -55,11 +55,9 @@ public class HibernateConfig {
 
 	}
 
-@Bean
-public HibernateTransactionManager getTransactionManager(SessionFactory sessionfactory)
-{
-	HibernateTransactionManager transactionManager=new HibernateTransactionManager(sessionfactory);
-
-	return transactionManager;	
-}
+	@Bean
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionfactory) {
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionfactory);
+		return transactionManager;
+	}
 }

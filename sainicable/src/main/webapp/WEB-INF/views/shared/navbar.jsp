@@ -1,4 +1,4 @@
-<nav class=" my-navbar navbar-default navbar-fixed-top" style="bg-color:red" >
+<nav class=" my-navbar navbar-default navbar-fixed-top" style="bg-color:red"; >
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="home"> <img alt="Brand" src="">
@@ -18,12 +18,13 @@
 	<div class="container-fluid">
 
 		<ul class="nav navbar-nav">
-			<li id="home"><a href="home">Home</a></li>
-			<li id="boxes"><a href="${contextRoot}/boxes">Set-top Boxes</a></li>
-			<li id="remotes"><a href="${contextRoot}/remotes">Remotes</a></li>
-			<li id="cables"><a href="${contextRoot}/cables">Cables</a></li>
+			<li id="home"><a href="${contextRoot}/home">Home</a></li>
+			<li id="products"><a href="${contextRoot}/all/products">Products</a></li>
+			<li id="plans"><a href="${contextRoot}/all/plans">Plans</a></li>
+			<li id="newConnection"><a href="${contextRoot}/new/connection">New Connection</a></li>
+			<li id="complaint"><a href="${contextRoot}/complaint">Complaint</a></li>
 			<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
-			<li id="about"><a href="${contextRoot}/about">About Us</a></li>
+			<li id="about"><a href="${contextRoot}/about">About Us</a></li> 
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">

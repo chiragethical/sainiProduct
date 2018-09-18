@@ -21,11 +21,14 @@
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 <link href="${css}/navbar.css" rel="stylesheet">
 <link href="${css}/sidebar.css" rel="stylesheet">
+<!-- datatable Bootstrap -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <!--<link href="${css}/myapp.css" rel="stylesheet">-->
@@ -47,26 +50,17 @@
 	<!--When user click only boxes  -->
 
 
-	<c:if test="${userClickBoxes==true }">
-		<%@include file="boxes.jsp"%>
+	<c:if test="${userClickAllProducts==true or userClickCategoryProducts == true}">
+		<%@include file="products.jsp"%>
 	</c:if>
-
-
-	<!--When user click only remotes  -->
-
-
-	<c:if test="${userClickRemotes==true }">
-		<%@include file="remotes.jsp"%>
+	
+	
+	
+	<c:if test="${userClickShowProduct == true}">
+		<%@include file="singleProduct.jsp"%>
 	</c:if>
+	
 
-
-
-	<!--When user click only cables  -->
-
-
-	<c:if test="${userClickCables==true }">
-		<%@include file="cables.jsp"%>
-	</c:if>
 
 
 	<!--When user click only about  -->
@@ -94,6 +88,10 @@
 	<script src="${js}/jquery.js"></script>
 	<!-- BOOTSTRAP JS  -->
 	<script src="${js}/bootstrap.min.js"></script>
+	<!-- DATATABLE JQUERY JS -->
+	<script src="${js}/jquery.dataTables.js"></script>
+	<!-- DATATABLE BOOTSTRAP JS -->
+	<script src="${js}/dataTables.bootstrap.js"></script>
 	<!-- MY WEB JS  -->
 	<script src="${js}/myweb.js"></script>
 

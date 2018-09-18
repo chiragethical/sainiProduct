@@ -13,10 +13,6 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String description;
-
-	@Column(name="image_url")
-	private String image;
 
 	@Column(name = "is_active")
 	private boolean active = true;
@@ -37,22 +33,6 @@ public class Category {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 	public boolean isActive() {
 		return active;
 	}
@@ -61,10 +41,8 @@ public class Category {
 		this.active = active;
 	}
 
-	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image
-				+ ", active=" + active + "]";
+		return "Category [id=" + id + ", name=" + name + ", active=" + active + "]";
 	}
 
 }
