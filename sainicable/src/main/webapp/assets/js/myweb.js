@@ -9,6 +9,10 @@ $(function() {
 	case 'Products':
 		$('#products').addClass('active');
 		break;
+		
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
+		break;
 
 	case 'Contact':
 		$('#contact').addClass('active');
@@ -57,7 +61,7 @@ $(function() {
 							 data: 'code',
 							 mRender: function(data, type, row)
 							 {
-								 return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTableImg"/>'
+								 return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTableImg"/>';
 							 }
 						 },
 						 {
@@ -67,7 +71,7 @@ $(function() {
 							 data: 'unitPrice',
 							 mRender : function(data, type, row)
 							 {
-								 return '&#8377; ' + data
+								 return '&#8377; ' + data;
 							 } 
 						 },
 						 {
@@ -102,6 +106,87 @@ $(function() {
 									 str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> </a>';
 									}
 								
+								 
+								 return str;
+							 }
+								 
+						 }
+						 
+						 ]
+					
+					
+					
+				})
+		}
+	
+	
+	//---------------------------------------------
+	// DATA TABLE FOR ADMIN
+	//---------------------------------------------
+	
+	var $adminProductsTable = $('#adminProductsTable');
+	if($adminProductsTable.length)
+		{
+//		console.log('table inserted');
+		
+		var jsonUrl = window.contextRoot + '/json/data/admin/all/products';
+		
+		
+		$adminProductsTable.DataTable(
+				{
+					lengthMenu : [[10,30,50,-1],['Ten Records','Thirty Records','Fifty Records','All']],
+					pageLength : 10,
+					
+					ajax:{
+						url: jsonUrl, 
+						dataSrc: ''
+					},
+					columns:
+						[
+						 {
+							 data: 'id'
+						 },
+						 {
+							 data: 'code',
+							 mRender: function(data, type, row)
+							 {
+								 return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="adminProductTableImg"/>';
+							 }
+						 },
+						 {
+							 data: 'name'
+						 },
+						 {
+							 data: 'brand'
+						 },
+						 {
+							 data: 'quantity',
+							 mRender : function(data , type, row)
+							 {
+								 if(data <1)
+									 {
+									 return '<span style="color:red">Out of Stock !</span>';
+									 }
+								 return data;
+							 }
+						 },
+						 {
+							 data: 'unitPrice',
+							 mRender : function(data, type, row)
+							 {
+								 return '&#8377; ' + data;
+							 } 
+						 },
+						 
+						 {
+							 data: 'id',
+							 bSortable: false,
+							 mRender: function(data, type, row)
+							 {
+								 var str = '';
+								 
+								 str+= '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';	
+								 str+= '<span class="glyphicon glyphicon-pencil"></span></a>';	
 								 
 								 return str;
 							 }

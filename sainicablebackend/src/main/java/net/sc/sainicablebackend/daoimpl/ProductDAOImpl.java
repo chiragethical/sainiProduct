@@ -20,7 +20,8 @@ public class ProductDAOImpl implements ProductDAO {
 	public Product get(int productId) {
 		try {
 			return sessionFactory.getCurrentSession().get(Product.class, Integer.valueOf(productId));
-		} catch (Exception ex) {
+		} 
+		catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return null;

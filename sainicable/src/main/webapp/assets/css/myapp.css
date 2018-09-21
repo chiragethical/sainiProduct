@@ -2,6 +2,9 @@ body {
   padding-top: 70px
 }
 
+.my-navbar{
+	background:yellow
+}
 .slide-image {
   width: 100%;
 }
@@ -44,4 +47,18 @@ body {
 
 footer {
   margin: 50px 0;
+}
+
+.dataTableImg {
+	
+	width:100px;
+	height: 100px;
+	
+}
+
+.adminProductTableImg
+{
+	width:50px;
+	height: 50px;
+	
 }

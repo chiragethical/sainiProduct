@@ -1,7 +1,7 @@
 <nav class=" my-navbar navbar-default navbar-fixed-top" style="bg-color:red"; >
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="home"> <img alt="Brand" src="">
+			<a class="navbar-brand" href="${contextRoot}/home"> <img alt="Brand" src="">
 			</a>
 		</div>
 				<ul class="nav navbar-nav navbar-right ">
@@ -20,6 +20,7 @@
 		<ul class="nav navbar-nav">
 			<li id="home"><a href="${contextRoot}/home">Home</a></li>
 			<li id="products"><a href="${contextRoot}/all/products">Products</a></li>
+			<li id="manageProducts"><a href="${contextRoot}/manage/products">Manage Products</a></li>
 			<li id="plans"><a href="${contextRoot}/all/plans">Plans</a></li>
 			<li id="newConnection"><a href="${contextRoot}/new/connection">New Connection</a></li>
 			<li id="complaint"><a href="${contextRoot}/complaint">Complaint</a></li>

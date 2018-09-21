@@ -31,7 +31,7 @@
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<!--<link href="${css}/myapp.css" rel="stylesheet">-->
+<link href="${css}/myapp.css" rel="stylesheet">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 	</c:if>
 
 
-	<!--When user click only boxes  -->
+	<!--When user all products -->
 
 
 	<c:if test="${userClickAllProducts==true or userClickCategoryProducts == true}">
@@ -58,6 +58,11 @@
 	
 	<c:if test="${userClickShowProduct == true}">
 		<%@include file="singleProduct.jsp"%>
+	</c:if>
+	
+	
+	<c:if test="${userClickManageProducts == true}">
+		<%@include file="manageProducts.jsp"%>
 	</c:if>
 	
 

@@ -30,9 +30,9 @@ public class ProductTestCase {
 			public void testCRUDProduct() {
 			
 			// create operation
-			/*product = new Product();
+			product = new Product();
 					
-			product.setName("SAMSUNG");
+			product.setName("Airtel");
 			product.setBrand("Oppo");
 			product.setDescription("This is some description for oppo mobile phones!");
 			product.setUnitPrice(25000);
@@ -40,7 +40,7 @@ public class ProductTestCase {
 			product.setCategoryId(3);
 			
 			assertEquals("Something went wrong while inserting a new product!",
-					true,productDAO.add(product));		*/
+					true,productDAO.add(product));		
 			
 			
 			// reading and updating the category
@@ -60,7 +60,7 @@ public class ProductTestCase {
 		}
 			
 		
-		@Test
+		/*@Test
 		public void testListActiveProducts() {
 			assertEquals("Something went wrong while fetching the list of products!",
 					1,productDAO.listActiveProducts().size());				
@@ -74,6 +74,6 @@ public class ProductTestCase {
 				assertEquals("Something went wrong while fetching the list of products!",
 					2,productDAO.listActiveProductsByCategory(1).size());
 		} 
-		
+		*/
 
 }
