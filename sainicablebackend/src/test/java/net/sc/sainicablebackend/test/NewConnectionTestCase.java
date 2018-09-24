@@ -1,6 +1,6 @@
 package net.sc.sainicablebackend.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,33 +28,31 @@ public class NewConnectionTestCase {
 	@Test
 	public void testCRUDNewConnection() {
 
-		newConnection = new NewConnection();
+		/*	newConnection = new NewConnection();
 
 		newConnection.setName("pooja");
-		newConnection.setAddress("sawan Ppark");
+		newConnection.setEmail("nanda.pooja52@gmail.com");
 		newConnection.setPhone("9555693908");
-		newConnection.setEmail("nanda.pooja52");
+		newConnection.setAddress("sawan park");
+		newConnection.setActive(true);
+		
 
 		assertEquals("Something went wrong while inserting a new newConnection!", true,
 				newConnectionDAO.add(newConnection));
-
+*/
 		// reading and updating the category
-		/*
-		 * newConnection = newConnectionDAO.get(2);
-		 * 
-		 * newConnection.setName("Samsung Galaxy S7"); assertEquals(
-		 * "Something went wrong while updating the existing record!",
-		 * true,newConnectionDAO.update(newConnection));
-		 * 
-		 * assertEquals(
-		 * "Something went wrong while deleting the existing record!",
-		 * true,newConnectionDAO.delete(newConnection));
-		 * 
-		 * // list assertEquals(
-		 * "Something went wrong while fetching the list of newConnections!",
-		 * 2,newConnectionDAO.list().size());
-		 */
-
+		
+		  newConnection = newConnectionDAO.get(2);
+		  
+		/* newConnection.setName("Samsung Galaxy S7");*/
+	/*	 
+		 assertEquals("Something went wrong while updating the existing record!", true, newConnectionDAO.update(newConnection));*/
+		 
+		 assertEquals("Something went wrong while deleting the existing record!",true,newConnectionDAO.delete(newConnection));
+		 
+		 
+		 assertEquals( "Something went wrong while fetching the list of newConnections!",1,newConnectionDAO.list().size());
+		
 	}
 
 	/*

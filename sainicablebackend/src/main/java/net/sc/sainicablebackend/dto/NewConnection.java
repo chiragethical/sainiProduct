@@ -7,40 +7,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Immutable;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
+
 public class NewConnection {
 
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		@NotNull
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id;
 		@Column(name = "request_id")	
-		@NotNull
 		private String requestId;
-		@NotEmpty
+		@NotBlank(message = "Please enter the name!")
 		private String name;
-		@Email
-		@NotEmpty
+		@Email(message = "Please enter correct Email!")
+		@NotBlank(message = "Please enter the email!")
 		private String email;
-		@NotEmpty
 		@Size(min=10,max=10,message="Not a valid contact number, Must be of 10 digit")
 		private String phone;
-		@NotEmpty
+		@NotEmpty(message = "Please enter the Address")
 		private String address;
 		@Column(name = "date_of_request")	
-		@NotEmpty
+		/*@NotEmpty*/
 		private String dateOfRequest;
-		@NotEmpty
-		private String status = "Not Installed";
+		private String status = "not installed";
 		@Column(name = "is_active")	
-		@NotEmpty
 		private boolean active = true;
 		
 		

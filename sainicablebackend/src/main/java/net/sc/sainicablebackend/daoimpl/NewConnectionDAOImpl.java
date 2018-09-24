@@ -27,16 +27,10 @@ public class NewConnectionDAOImpl implements NewConnectionDAO {
 		return null;
 	}
 
-	public NewConnection get(String newConnectionEmail) {
-		String selectActiveNewConnections = "FROM NewConnection WHERE email = :email";
-		return sessionFactory.getCurrentSession().createQuery(selectActiveNewConnections, NewConnection.class)
-				.setParameter("email", true).getSingleResult();
-	}
-
 	public List<NewConnection> list() {
 		return sessionFactory.getCurrentSession().createQuery("FROM NewConnection", NewConnection.class).getResultList();
 	}
-
+	
 	public boolean add(NewConnection newConnection) {
 		try {
 			sessionFactory.getCurrentSession().persist(newConnection);
@@ -70,12 +64,6 @@ public class NewConnectionDAOImpl implements NewConnectionDAO {
 			ex.printStackTrace();
 		}
 		return false;
-	}
-
-	public List<NewConnection> listActiveNewConnections() {
-		String selectActiveNewConnections = "FROM NewConnection WHERE active = :active";
-		return sessionFactory.getCurrentSession().createQuery(selectActiveNewConnections, NewConnection.class)
-				.setParameter("active", true).getResultList();
 	}
 
 }

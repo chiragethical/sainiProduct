@@ -1,17 +1,26 @@
 package net.sc.sainicable.controller;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.sc.sainicable.exception.ProductNotFoundException;
 import net.sc.sainicablebackend.dao.CategoryDAO;
+import net.sc.sainicablebackend.dao.NewConnectionDAO;
 import net.sc.sainicablebackend.dao.ProductDAO;
 import net.sc.sainicablebackend.dto.Category;
+import net.sc.sainicablebackend.dto.NewConnection;
 import net.sc.sainicablebackend.dto.Product;
 
 @Controller
@@ -23,6 +32,8 @@ public class PageController {
 	private CategoryDAO categoryDAO;
 	@Autowired
 	private ProductDAO productDAO;
+	@Autowired
+	private NewConnectionDAO newConnectionDAO;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
@@ -36,6 +47,8 @@ public class PageController {
 		mv.addObject("userClickHome", true);
 		return mv;
 	}
+	
+	//========  SHOW ALL PRODUCTS  ================================================//
 
 	@RequestMapping(value = "/all/products")
 	public ModelAndView allProducts() {		
@@ -48,6 +61,8 @@ public class PageController {
 		mv.addObject("userClickAllProducts",true);
 		return mv;				
 	}	
+	
+	//========  SHOW CATEGORY WISE PRODUCT ================================================//
 	
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {		
@@ -70,6 +85,7 @@ public class PageController {
 		return mv;				
 	}	
 	
+	//========  SHOW SINGLE PRODUCT =========================================================//
 	
 	@RequestMapping(value = "/show/{id}/product") 
 	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
@@ -93,8 +109,53 @@ public class PageController {
 		
 	}
 	
+	//======== APPLY FOR NEW CONNECTION  =========================================================//
+	
+	@RequestMapping(value = "/apply/newConnection", method = RequestMethod.GET) 
+	public ModelAndView showApplyConnection(@RequestParam(name = "operation", required = false) String operation){
+		
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "New Connection");
+		mv.addObject("userClickAddNewConnection", true);
+		
+		NewConnection newConnection = new NewConnection();
+		mv.addObject("newConnection", newConnection);
+		
+		if (operation != null) {
+			if (operation.equals("thankYou")) {
+				mv.addObject("message", "Thank You.\n Your request has been submitted successfully.\n We will contact you soon.");
+			}
+		}
+		return mv;
+	}
 	
 	
+	
+	@RequestMapping(value = "/apply/newConnection", method = RequestMethod.POST) 
+	public String newConnection (@Valid @ModelAttribute("newConnection")NewConnection newConnection, BindingResult results,
+			Model model) 
+	{
+		if (results.hasErrors())
+		{
+			model.addAttribute("userClickAddNewConnection", true);
+			model.addAttribute("title", "New Connection");
+			model.addAttribute("message","Please enter correct details");
+			return "page";	
+		}
+		newConnectionDAO.add(newConnection);
+		return "redirect:/apply/newConnection?operation=thankYou";
+	}
+	
+	
+	//========  SHOW ALL PLANS =========================================================//
+	
+	@RequestMapping(value = "/all/plans")
+	public ModelAndView allPlans() {		
+		ModelAndView mv = new ModelAndView("page");		
+		mv.addObject("title","Plans");		
+		mv.addObject("userClickAllPlans",true);
+		return mv;				
+	}
 	
 
 	@RequestMapping(value = "/about")

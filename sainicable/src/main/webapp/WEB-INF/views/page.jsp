@@ -25,7 +25,7 @@
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
-<link href="${css}/navbar.css" rel="stylesheet">
+<%-- <link href="${css}/navbar.css" rel="stylesheet"> --%>
 <link href="${css}/sidebar.css" rel="stylesheet">
 <!-- datatable Bootstrap -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
@@ -65,6 +65,25 @@
 		<%@include file="manageProducts.jsp"%>
 	</c:if>
 	
+	
+	<c:if test="${userClickAllPlans == true}">
+		<%@include file="plans.jsp"%>
+	</c:if>
+	
+	
+	
+	<c:if test="${userClickManagePlans == true}">
+		<%@include file="managePlans.jsp"%>
+	</c:if>
+	
+	
+	<c:if test="${userClickAddNewConnection==true }">
+		<%@include file="newConnection.jsp"%>
+	</c:if>
+	
+	<c:if test="${userClickManageConnections==true }">
+		<%@include file="manageConnections.jsp"%>
+	</c:if>
 
 
 

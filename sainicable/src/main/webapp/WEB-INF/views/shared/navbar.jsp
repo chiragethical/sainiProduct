@@ -1,4 +1,4 @@
-<nav class=" my-navbar navbar-default navbar-fixed-top" style="bg-color:red"; >
+<nav class="my-navbar navbar-default navbar-fixed-top" style="bg-color:red"; >
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="${contextRoot}/home"> <img alt="Brand" src="">
@@ -20,10 +20,12 @@
 		<ul class="nav navbar-nav">
 			<li id="home"><a href="${contextRoot}/home">Home</a></li>
 			<li id="products"><a href="${contextRoot}/all/products">Products</a></li>
-			<li id="manageProducts"><a href="${contextRoot}/manage/products">Manage Products</a></li>
 			<li id="plans"><a href="${contextRoot}/all/plans">Plans</a></li>
-			<li id="newConnection"><a href="${contextRoot}/new/connection">New Connection</a></li>
+			<li id="newConnection"><a href="${contextRoot}/apply/newConnection">New Connection</a></li>
 			<li id="complaint"><a href="${contextRoot}/complaint">Complaint</a></li>
+			<li id="manageProducts"><a href="${contextRoot}/manage/products">Manage Products</a></li>
+			<li id="managePlans"><a href="${contextRoot}/manage/plans">Manage Plans</a></li>
+			<li id="manageConnections"><a href="${contextRoot}/manage/connections">Manage Connections</a></li>
 			<li id="contact"><a href="${contextRoot}/contact">Contact Us</a></li>
 			<li id="about"><a href="${contextRoot}/about">About Us</a></li> 
 		</ul>

@@ -6,14 +6,11 @@ import net.sc.sainicablebackend.dto.NewConnection;
 
 
 public interface NewConnectionDAO {
-
-	NewConnection get(String newConnectionEmail);
+	
+	NewConnection get(int newConnectionId);
 	List<NewConnection> list();	
 	boolean add(NewConnection newConnection);
 	boolean update(NewConnection newConnection);
 	boolean delete(NewConnection newConnection);
 
-	List<NewConnection> listActiveNewConnections();	
-
-
-}
+	}
